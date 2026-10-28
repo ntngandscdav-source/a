@@ -1,0 +1,88 @@
+WEBSITE BÁO CÁO — GIAO DIỆN VÀNG / ĐEN
+Phiên bản 0.2 · Ngày 09/10/2026
+Dành cho kho https://github.com/hj1207com-bot/bao-cao-website
+
+Bạn đã có cơ sở dữ liệu 11 bảng và tài khoản ADMIN001. Không chạy lại tệp khởi tạo 01.
+Các tệp website trong bộ này đã điền sẵn Project URL và Publishable key do bạn cung cấp.
+
+1. GIẢI NÉN
+Nhấp phải tệp ZIP → Extract All / Giải nén tất cả.
+Bên trong có:
+  01-website: toàn bộ giao diện cần tải lên GitHub.
+  02-supabase: lệnh thêm báo cáo mẫu vào Supabase.
+  HUONG_DAN_BAT_DAU.txt: tệp hướng dẫn này.
+  GHI_CHU_KY_THUAT.md: phạm vi, cấu trúc và quy ước cho các bước phát triển sau.
+
+2. THÊM MỘT BÁO CÁO MẪU
+Mở 02-supabase/02_them_bao_cao_mau.sql bằng Notepad.
+Ctrl+A → Ctrl+C để sao chép tất cả.
+Vào Supabase → dự án bao-cao-data → SQL Editor → New query.
+Dán nội dung → chọn role postgres nếu có → Run.
+Kết quả: tên báo cáo, status = draft, so_phan = 6, so_bo_du_lieu = 1.
+Đây là số liệu GIẢ LẬP, chỉ để kiểm tra giao diện. Báo cáo ở trạng thái bản nháp, chỉ quản trị viên hoạt động nhìn thấy.
+Bạn có thể chạy lại tệp mẫu mà không tạo trùng hoặc ghi đè các dòng đã tồn tại theo ID.
+Nếu có lỗi, giữ nguyên thông báo và gửi lại; không xóa bảng để thử lại.
+
+3. TẢI GIAO DIỆN LÊN GITHUB
+Mở https://github.com/hj1207com-bot/bao-cao-website
+Tại trang Code, chọn Add file → Upload files.
+Trên máy tính, MỞ thư mục 01-website.
+Chọn toàn bộ TỆP VÀ THƯ MỤC BÊN TRONG 01-website, rồi kéo thả vào vùng upload.
+Cần có index.html, app.js, styles.css, config.js, utils.js, .nojekyll và thư mục assets.
+Không kéo cả thư mục 01-website thành một thư mục con trong kho.
+Không tải tệp ZIP, thư mục 02-supabase hoặc các tệp hướng dẫn lên thay cho giao diện.
+Chờ tải xong, điền ghi chú: Them giao dien vang den
+Chọn Commit directly to the main branch nếu được hỏi → Commit changes.
+Ở trang Code, bạn phải thấy index.html NGAY CÙNG CẤP với README.md.
+Thư mục assets phải còn đầy đủ tệp phông chữ, favicon và supabase.js.
+
+4. BẬT GITHUB PAGES
+Trong kho bao-cao-website, vào Settings → Pages.
+Phần Build and deployment:
+  Source: Deploy from a branch
+  Branch: main
+  Folder: / (root)
+Bấm Save.
+Đợi GitHub hoàn tất triển khai. Có thể xem tiến độ tại tab Actions.
+Địa chỉ dự kiến:
+https://hj1207com-bot.github.io/bao-cao-website/
+Nếu chưa mở được ngay, kiểm tra trạng thái triển khai tại Settings → Pages.
+Không dùng link github.com/... làm địa chỉ đăng nhập website.
+
+5. ĐĂNG NHẬP VÀ KIỂM TRA
+Mở địa chỉ GitHub Pages nêu trên.
+Nhập EMAIL và MẬT KHẨU bạn đã tạo ở Supabase → Authentication → Users.
+ADMIN001 là mã tài khoản hiển thị, không phải email để điền vào ô đăng nhập.
+Kiểm tra:
+  - Giao diện vàng / đen.
+  - Đăng nhập vào thư viện.
+  - Có báo cáo “Báo cáo minh họa — Hiệu quả hoạt động”, nhãn Bản nháp.
+  - Mở được biểu đồ 6 tháng, bảng 6 dòng và watermark ADMIN001.
+  - Mục lục chuyển đến đúng phần.
+  - Trang Tổng quan quản trị có danh sách tài khoản và lịch sử thay đổi.
+  - Đăng xuất trở về màn hình đăng nhập, nội dung báo cáo được xóa khỏi trang.
+
+6. NẾU GẶP VẤN ĐỀ
+Lỗi 404 trên GitHub Pages: kiểm tra index.html nằm ở gốc kho và Pages chọn main / (root).
+Trang không có màu hoặc không kết nối: kiểm tra styles.css, app.js, config.js, utils.js và thư mục assets đã tải đủ; nhấn Ctrl+F5.
+Không đăng nhập được: dùng email/mật khẩu tài khoản website trong Supabase Auth; kiểm tra email đã xác nhận.
+Đăng nhập nhưng đang chờ/khóa/hết hạn: kiểm tra hồ sơ tương ứng trong bảng profiles.
+Thư viện trống: chạy tệp báo cáo mẫu hoặc kiểm tra quyền của tài khoản. Chỉ admin xem được mẫu dạng draft.
+Không mở tệp index.html bằng nhấp đúp để kiểm tra: hãy dùng URL GitHub Pages.
+
+7. PHẠM VI BẢN NÀY
+Đã có: đăng nhập/đăng xuất, hồ sơ, thư viện/tìm kiếm/lọc, xem báo cáo và biểu đồ/bảng, watermark, giao diện điện thoại, tổng quan quản trị dạng xem, xuất 100 thay đổi gần nhất ra CSV.
+Mọi dữ liệu nghiệp vụ được đọc từ Supabase và chịu quyền RLS đã tạo. Không nhúng dữ liệu riêng tư vào các tệp giao diện.
+Chưa có: tạo/sửa/khóa tài khoản trên giao diện, nhập Excel/CSV, sửa quyền trên giao diện, ghi lượt đăng nhập/mở báo cáo vào access_logs, khôi phục mật khẩu qua email, đọc tệp Storage hoặc đồng bộ Google Sheets. Đây là các bước tiếp theo cần chức năng phía máy chủ.
+Phiên đăng nhập được lưu trong sessionStorage của thẻ trình duyệt. Nội dung báo cáo không được lưu vào localStorage hay bộ nhớ ngoại tuyến.
+Website kiểm tra lại trạng thái/quyền khoảng 30 giây và khi quay lại thẻ; RLS vẫn kiểm tra mọi lần đọc ở máy chủ. Nội dung đã xem hoặc đã chụp lại không thể thu hồi bằng watermark.
+
+8. THÔNG TIN CẤU HÌNH
+Chỉ Publishable key được dùng trong config.js. Không đặt secret key, service_role, mật khẩu hoặc connection string vào frontend/GitHub.
+Nếu đổi dự án Supabase, cần sửa config.js VÀ địa chỉ connect-src trong thẻ CSP của index.html.
+Frontend này là HTML/CSS/JavaScript tĩnh; không cần cài Node.js, không cần npm build, không cần .env khi tải lên GitHub Pages.
+
+Tài liệu chính thức:
+https://docs.github.com/en/repositories/working-with-files/managing-files/adding-a-file-to-a-repository
+https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site
+https://supabase.com/docs/guides/getting-started/api-keys
