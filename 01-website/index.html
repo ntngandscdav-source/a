@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#121310">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="referrer" content="no-referrer">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self' https://itnaeampqljqmqirwtfi.supabase.co; object-src 'none'; base-uri 'self'; form-action 'none'">
+  <meta name="description" content="Không gian báo cáo và dữ liệu dành cho thành viên được cấp quyền.">
+  <title>BÁO CÁO — Không gian dữ liệu</title>
+  <link rel="icon" type="image/svg+xml" href="./assets/favicon.svg">
+  <link rel="stylesheet" href="./styles.css">
+  <script type="module" src="./app.js"></script>
+</head>
+<body>
+  <a href="#main" class="skip-link">Chuyển đến nội dung</a>
+  <div id="login-screen" class="login-screen">
+    <section class="login-story" aria-label="Giới thiệu">
+      <a class="brand" href="#/" aria-label="BÁO CÁO — Trang chủ">
+        <span class="brand-icon" aria-hidden="true"><i></i><i></i><i></i></span>
+        <span>BÁO CÁO<span class="brand-caption">KHÔNG GIAN DỮ LIỆU</span></span>
+      </a>
+      <div class="story-content">
+        <div class="eyebrow"><span class="small-line"></span> THÔNG TIN TẠO NÊN GIÁ TRỊ</div>
+        <h1>Dữ liệu rõ ràng.<br><span>Góc nhìn sâu sắc.</span></h1>
+        <p>Một không gian tập trung để khám phá báo cáo,<br class="desktop-break"> theo dõi số liệu và kết nối những góc nhìn.</p>
+        <div class="visual-card" aria-hidden="true">
+          <div class="visual-top"><span>TỪ DỮ LIỆU ĐẾN GÓC NHÌN</span><span>↗</span></div>
+          <svg viewBox="0 0 480 160" role="presentation"><g class="visual-grid"><path d="M0 30H480M0 80H480M0 130H480M80 0V160M180 0V160M280 0V160M380 0V160"/></g><path class="visual-area" d="M0 146L55 120L110 128L168 74L225 94L282 44L340 59L400 25L480 5V160H0Z"/><path class="visual-line" d="M0 146L55 120L110 128L168 74L225 94L282 44L340 59L400 25L480 5"/><circle class="visual-dot" cx="400" cy="25" r="5"/></svg>
+          <div class="visual-bottom"><span>Khám phá</span><span>Phân tích</span><span>Thấu hiểu</span></div>
+        </div>
+      </div>
+      <div class="story-footer"><span class="lock-dot">●</span> Dành riêng cho thành viên được cấp quyền <span class="story-year">2026</span></div>
+    </section>
+    <section class="login-side">
+      <div class="login-side-top"><span class="pill subtle">CỔNG THÔNG TIN THÀNH VIÊN</span><button class="icon-button" data-action="help" aria-label="Hỗ trợ đăng nhập">?</button></div>
+      <div class="login-form-wrap">
+        <div class="welcome-icon" aria-hidden="true">↗</div>
+        <p class="eyebrow muted">CHÀO MỪNG TRỞ LẠI</p>
+        <h2>Đăng nhập.</h2>
+        <p class="login-description">Truy cập các báo cáo được chia sẻ với bạn.</p>
+        <form id="login-form">
+          <label for="email">Địa chỉ email</label>
+          <input id="email" name="email" type="email" autocomplete="username" placeholder="ban@example.com" required maxlength="254">
+          <div class="password-label"><label for="password">Mật khẩu</label><button class="text-button" type="button" data-action="help">Cần hỗ trợ?</button></div>
+          <div class="password-field"><input id="password" name="password" type="password" autocomplete="current-password" placeholder="Nhập mật khẩu của bạn" required maxlength="1024"><button id="password-toggle" type="button" aria-label="Hiện mật khẩu" aria-pressed="false">Hiện</button></div>
+          <p id="login-error" class="notice error" role="alert" hidden></p>
+          <button id="login-button" class="button yellow login-submit" type="submit" disabled><span>Đang kết nối…</span><span aria-hidden="true">↗</span></button>
+        </form>
+        <div class="login-note"><span aria-hidden="true">◇</span><p>Sử dụng tài khoản đã được quản trị viên cấp.<br>Thông tin truy cập của bạn được giữ riêng tư.</p></div>
+      </div>
+      <div class="login-bottom">BÁO CÁO <span>Không gian dữ liệu của bạn.</span></div>
+    </section>
+  </div>
+
+  <div id="app-screen" class="app-screen" hidden>
+    <aside class="sidebar" aria-label="Điều hướng chính">
+      <a class="brand" href="#/"><span class="brand-icon" aria-hidden="true"><i></i><i></i><i></i></span><span>BÁO CÁO<span class="brand-caption">KHÔNG GIAN DỮ LIỆU</span></span></a>
+      <div class="sidebar-label">KHÔNG GIAN LÀM VIỆC</div>
+      <nav>
+        <a class="nav-link" href="#/" data-nav="library"><span aria-hidden="true">▤</span> Thư viện báo cáo <span class="nav-arrow">↗</span></a>
+        <a class="nav-link" href="#/account" data-nav="account"><span aria-hidden="true">◎</span> Tài khoản của tôi</a>
+        <a id="admin-nav" class="nav-link" href="#/admin" data-nav="admin" hidden><span aria-hidden="true">▦</span> Tổng quan quản trị</a>
+      </nav>
+      <div class="sidebar-bottom"><div class="sidebar-note"><span aria-hidden="true">✦</span><p>Thông tin có giá trị.<br>Chia sẻ có trách nhiệm.</p></div><div class="user-card"><span id="user-avatar" class="avatar">BC</span><div><strong id="sidebar-name"></strong><small id="sidebar-code"></small></div><button class="icon-button" data-action="logout" aria-label="Đăng xuất">↪</button></div></div>
+    </aside>
+    <div class="app-body">
+      <header class="topbar"><div class="mobile-brand">BÁO CÁO<span> / </span></div><div id="breadcrumb">Không gian làm việc / Thư viện</div><div class="topbar-right"><span id="connection-state" class="connection"><i></i> Đã kết nối</span><button class="icon-button" data-action="help" aria-label="Trợ giúp">?</button></div></header>
+      <nav class="mobile-nav" aria-label="Điều hướng điện thoại"><a href="#/" data-nav="library">Thư viện</a><a href="#/account" data-nav="account">Tài khoản</a><a id="mobile-admin-nav" href="#/admin" data-nav="admin" hidden>Quản trị</a><button data-action="logout">Đăng xuất</button></nav>
+      <main id="main" tabindex="-1"></main>
+      <footer class="app-footer"><span>BÁO CÁO / KHÔNG GIAN DỮ LIỆU</span><span>Chỉ sử dụng nội dung trong phạm vi được cấp quyền.</span></footer>
+    </div>
+  </div>
+  <div id="toast" class="toast" role="status" hidden></div>
+  <dialog id="help-dialog"><div class="dialog-top"><span class="eyebrow">HỖ TRỢ</span><button class="icon-button" data-action="close-help" aria-label="Đóng">×</button></div><h2>Bạn cần trợ giúp?</h2><p>Liên hệ người đã cấp tài khoản nếu bạn quên mật khẩu, chưa có quyền xem báo cáo hoặc tài khoản đã hết hạn.</p><p>Khi báo lỗi, bạn có thể gửi ảnh màn hình và mã tài khoản. Hãy giữ riêng mật khẩu của mình.</p><button class="button yellow" data-action="close-help">Đã hiểu</button></dialog>
+  <noscript><div class="noscript">Bạn cần bật JavaScript trong trình duyệt để đăng nhập và đọc báo cáo.</div></noscript>
+</body>
+</html>
